@@ -1,5 +1,4 @@
 import axios from "axios";
-// import { useParams } from "react-router-dom";
 
 const ncNewsApi = axios.create({
   baseURL: "https://lees-nc-news.onrender.com/api/",
@@ -14,5 +13,12 @@ export const getArticles = () => {
 export const getArticlesByID = (articleId) => {
   return ncNewsApi.get(`/articles/${articleId}`).then(({ data }) => {
     return data.article[0];
+  });
+};
+
+export const getCommentsById = (articleId) => {
+  return ncNewsApi.get(`/articles/${articleId}/comments`).then(({ data }) => {
+    console.log(data.comments);
+    return data.comments;
   });
 };
