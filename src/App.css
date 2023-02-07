@@ -23,6 +23,12 @@
   padding: 1rem;
 }
 
+.single-card-style {
+  width: 40rem;
+  margin: 20px;
+  padding: 1rem;
+}
+
 .nav-style {
   background-color: white;
   margin: 10px;
