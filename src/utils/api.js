@@ -9,3 +9,16 @@ export const getArticles = () => {
     return data;
   });
 };
+
+export const getArticlesByID = (articleId) => {
+  return ncNewsApi.get(`/articles/${articleId}`).then(({ data }) => {
+    return data.article[0];
+  });
+};
+
+export const getCommentsById = (articleId) => {
+  return ncNewsApi.get(`/articles/${articleId}/comments`).then(({ data }) => {
+    console.log(data.comments);
+    return data.comments;
+  });
+};
