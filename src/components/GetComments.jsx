@@ -31,7 +31,7 @@ const Comments = ({article_id}) => {
                 key={comment.comment_id}
               >
                 <Card.Text>
-                <label className= "card-label" >{comment.comment_id}:</label> {comment.body}
+                {comment.body}
                 </Card.Text>
                 <Card.Text>
                 <label className= "card-label" >Posted by: </label> {comment.author} - {comment.created_at.slice(8, 10)}-{comment.created_at.slice(5, 7)}-{comment.created_at.slice(0, 4)} @ {comment.created_at.slice(11, 19)}

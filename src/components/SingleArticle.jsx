@@ -32,7 +32,7 @@ const SingleArticle = () => {
         key={article.article_id}
       >
         <Card.Title>
-          {article.article_id}: {article.title}
+         {article.title}
         </Card.Title>
         <Card.Img src={article.article_img_url} alt={article.title}></Card.Img>
         <Card.Body>
