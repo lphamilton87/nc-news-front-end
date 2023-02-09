@@ -2,7 +2,6 @@ import { useState } from "react";
 import { patchArticleVotesById } from "../utils/api";
 
 const Votes = ({ article_id, votes }) => {
-  console.log(votes);
   const [votesChange, setVotesChangeBy] = useState(0);
 
   const increaseVotes = () => {
