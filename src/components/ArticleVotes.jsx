@@ -16,7 +16,7 @@ const Votes = ({ article_id, votes }) => {
 
   return (
     <>
-      <h6>{votes + votesChange} Votes</h6>
+      {/* <h6>{votes + votesChange} Votes</h6> */}
       <button disabled={votesChange === -1} onClick={() => dereaseVotes()}>
         -1
       </button>

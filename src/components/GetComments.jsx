@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { getCommentsById } from "../utils/api";
 import { Card } from "react-bootstrap";
+import AddComment from "./AddComments";
 
 const Comments = ({ article_id }) => {
   const [comments, setComments] = useState([]);
@@ -20,7 +21,10 @@ const Comments = ({ article_id }) => {
   }
 
   return (
-    <>
+    <div>
+      <div>
+        <AddComment comments={comments} setComments={setComments} />
+      </div>
       <h2>Comments</h2>
       {comments.map((comment) => {
         return (
@@ -42,7 +46,7 @@ const Comments = ({ article_id }) => {
           </Card>
         );
       })}
-    </>
+    </div>
   );
 };
 
