@@ -28,9 +28,7 @@ const Articles = () => {
               className="card-style"
               key={article.article_id}
             >
-              <Card.Title>
-                {article.title}
-              </Card.Title>
+              <Card.Title>{article.title}</Card.Title>
               <Card.Img
                 src={article.article_img_url}
                 alt={article.title}
