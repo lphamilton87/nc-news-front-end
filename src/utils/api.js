@@ -35,5 +35,7 @@ export const postComment = (articleId, username, comment) => {
     .then(({ data }) => {
       return data;
     })
-    .catch((error) => {});
+    .catch((error) => {
+      console.log(error);
+    });
 };

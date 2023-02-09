@@ -5,6 +5,7 @@ import NavBar from "./components/NavBar";
 import Home from "./components/Home";
 import "bootstrap/dist/css/bootstrap.min.css";
 import SingleArticle from "./components/SingleArticle";
+import Topics from "./components/Topics";
 
 function App() {
   return (
