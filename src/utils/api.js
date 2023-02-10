@@ -55,3 +55,9 @@ export const deleteComment = (commentId) => {
     return data;
   });
 };
+
+export const getUsers = () => {
+  return ncNewsApi.get(`/users`).then(({ data }) => {
+    return data;
+  });
+};

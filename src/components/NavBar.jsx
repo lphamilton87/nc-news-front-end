@@ -7,7 +7,11 @@ const NavBar = () => {
     <nav className="nav-style">
       <div className="flex-centered">
         <Link className="Nav_link" to="/">
-          Home
+          Home{" "}
+        </Link>
+        <Link className="Nav_link" to="/users">
+          {" "}
+          Users
         </Link>
         <TopicsBar />
       </div>

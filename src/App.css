@@ -29,6 +29,27 @@
   padding: 1rem;
 }
 
+.users-card {
+  width: 20vw;
+  height: 30vh;
+  padding: 0.5rem;
+  margin: 2vh;
+}
+
+.userImg {
+  max-height: 15vh;
+  max-width: 15vh;
+}
+
+.user-div {
+  display: inline-block;
+  white-space: nowrap;
+  padding: 1vh;
+  width: 25vw;
+  height: 30vh;
+  margin: 2vh;
+}
+
 .nav-style {
   background-color: white;
   margin: 10px;
