@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import TopicsBar from "./TopicsBar";
 
 const NavBar = () => {
   return (
@@ -8,9 +9,7 @@ const NavBar = () => {
         <Link className="Nav_link" to="/">
           Home
         </Link>
-        <Link className="Nav_link" to="/categories">
-          Topics
-        </Link>
+        <TopicsBar />
       </div>
     </nav>
   );

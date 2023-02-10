@@ -4,10 +4,20 @@ const ncNewsApi = axios.create({
   baseURL: "https://lees-nc-news.onrender.com/api/",
 });
 
-export const getArticles = () => {
-  return ncNewsApi.get(`/articles`).then(({ data }) => {
+export const getTopics = () => {
+  return ncNewsApi.get(`/topics`).then(({ data }) => {
     return data;
   });
+};
+
+export const getArticles = (topic) => {
+  return ncNewsApi
+    .get(`/articles`, {
+      params: { topic: topic },
+    })
+    .then(({ data }) => {
+      return data;
+    });
 };
 
 export const getArticlesByID = (articleId) => {
