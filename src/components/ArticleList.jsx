@@ -2,18 +2,20 @@ import { useEffect, useState } from "react";
 import { getArticles } from "../utils/api";
 import { Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 const Articles = () => {
   const [articles, setArticles] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const { topic } = useParams();
 
   useEffect(() => {
     setIsLoading(true);
-    getArticles().then((articlesFromApi) => {
+    getArticles(topic).then((articlesFromApi) => {
       setArticles(articlesFromApi);
       setIsLoading(false);
     });
-  }, []);
+  }, [topic]);
 
   if (isLoading) {
     return <p>Loading....</p>;

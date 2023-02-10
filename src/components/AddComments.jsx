@@ -8,10 +8,8 @@ const AddComment = ({ setComments }) => {
   const username = "jessjelly";
 
   const handleSubmit = (event) => {
-    console.log(event, "<<< event");
     event.preventDefault();
     postComment(article_id, username, newComment).then((commentFromApi) => {
-      console.log(commentFromApi);
       setComments((currComments) => {
         return [commentFromApi, ...currComments];
       });
