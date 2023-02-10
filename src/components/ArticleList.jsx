@@ -8,8 +8,8 @@ const Articles = () => {
   const [articles, setArticles] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const { topic } = useParams();
-  const [sort_by, setSortBy] = useState();
-  const [order, setOrder] = useState();
+  const [sort_by, setSortBy] = useState("created_at");
+  const [order, setOrder] = useState("asc");
 
   useEffect(() => {
     setIsLoading(true);
