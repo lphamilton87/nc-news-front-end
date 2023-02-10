@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
-import { getCommentsById } from "../utils/api";
-import { Card } from "react-bootstrap";
+import { getCommentsById, deleteComment } from "../utils/api";
+import { Card, Button } from "react-bootstrap";
 import AddComment from "./AddComments";
 
 const Comments = ({ article_id }) => {
   const [comments, setComments] = useState([]);
 
   const [isLoading, setIsLoading] = useState(true);
+  const [deletedComm, setDeletedComm] = useState(false);
 
   useEffect(() => {
     setIsLoading(true);
@@ -14,18 +15,26 @@ const Comments = ({ article_id }) => {
       setComments(commentsFromApi);
       setIsLoading(false);
     });
-  }, [article_id]);
+  }, [article_id, deletedComm]);
 
   if (isLoading) {
     return <p>Loading....</p>;
   }
+
+  const deleteFunction = (comment) => {
+    setDeletedComm(false);
+    setComments(comments.filter((event) => event.id === comment.id));
+    deleteComment(comment.comment_id).then(() => {
+      setDeletedComm(true);
+    });
+  };
 
   return (
     <div>
       <div>
         <AddComment comments={comments} setComments={setComments} />
       </div>
-      <h2>Comments</h2>
+
       {comments.map((comment) => {
         return (
           <Card
@@ -43,6 +52,9 @@ const Comments = ({ article_id }) => {
             <Card.Text>
               <label className="card-label">Votes: </label> {comment.votes}
             </Card.Text>
+            <Button onClick={() => deleteFunction(comment)}>
+              Delete comment
+            </Button>
           </Card>
         );
       })}
