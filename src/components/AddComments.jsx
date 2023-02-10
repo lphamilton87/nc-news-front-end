@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { postComment } from "../utils/api";
+import { Form, Button } from "react-bootstrap";
 
 const AddComment = ({ setComments }) => {
   const { article_id } = useParams();
@@ -19,17 +20,17 @@ const AddComment = ({ setComments }) => {
 
   return (
     <div>
-      <form onSubmit={handleSubmit} className="add=comment-form">
-        <input
+      <Form onSubmit={handleSubmit} className="add=comment-form">
+        <Form.Control
           type="text"
           value={newComment}
           placeholder="Type comment here..."
           onChange={(event) => {
             setNewComment(event.target.value);
           }}
-        ></input>
-        <button type="submit">Submit</button>
-      </form>
+        ></Form.Control>
+        <Button type="submit">Submit</Button>
+      </Form>
     </div>
   );
 };
