@@ -22,5 +22,5 @@ Run `npm start` to view the app locally in development mode, it will update each
 
 Run `npm test` to launch the test runner in the interactive watch mode
 
-Run `npm run build` this will build the app for production to the `build` folder. See the section about deployment for more information
+Run `npm run build` this will build the app for production to the `build` folder. See the section about deployment for more information here : https://create-react-app.dev/docs/deployment/
 
