@@ -2,10 +2,13 @@ import { useEffect, useState } from "react";
 import { getCommentsById, deleteComment } from "../utils/api";
 import { Card, Button } from "react-bootstrap";
 import AddComment from "./AddComments";
+import { UserContext } from "../contexts/UserContext";
+import { useContext } from "react";
 
 const Comments = ({ article_id }) => {
   const [comments, setComments] = useState([]);
-
+  const userValue = useContext(UserContext);
+  const username = userValue.loggedInUser.username;
   const [isLoading, setIsLoading] = useState(true);
   const [deletedComm, setDeletedComm] = useState(false);
 
@@ -22,6 +25,11 @@ const Comments = ({ article_id }) => {
   }
 
   const deleteFunction = (comment) => {
+    if (comment.author !== username) {
+      alert("You are not authorised to delete this comment!");
+      return;
+    }
+
     setDeletedComm(false);
     setComments(comments.filter((event) => event.id === comment.id));
     deleteComment(comment.comment_id).then(() => {
