@@ -1,12 +1,15 @@
 import { useState } from "react";
 import { useParams } from "react-router-dom";
+import { UserContext } from "../contexts/UserContext";
+import { useContext } from "react";
 import { postComment } from "../utils/api";
 import { Form, Button } from "react-bootstrap";
 
 const AddComment = ({ setComments }) => {
   const { article_id } = useParams();
   const [newComment, setNewComment] = useState("");
-  const username = "jessjelly";
+  const userValue = useContext(UserContext);
+  const username = userValue.loggedInUser.username;
 
   const handleSubmit = (event) => {
     event.preventDefault();
